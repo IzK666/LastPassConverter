@@ -8,15 +8,21 @@ document.getElementById('file').addEventListener('change', function() {
 	reader.onload = function(e) {
 		var content = e.target.result;
 		input.value = content;
+		conversion();
 	};
-	reader.readAsText(file);
+	reader.readAsText(file, "ISO-8859-1");
 }, false);
 
 document.getElementById('Clear').addEventListener('click', function() {
 	document.getElementById("input").value = "";
+	conversion();
 }, false);
 
 document.getElementById('input').addEventListener('change', function() {
+conversion();
+}, false);
+
+function conversion() {
 	var input = document.getElementById("input");
 	var output = document.getElementById("output");
 	var content = input.value;
@@ -33,6 +39,7 @@ document.getElementById('input').addEventListener('change', function() {
 
 	if (lines[0] != "url,username,password,extra,name,grouping,fav") {
 		output.value = "Not a Lastpass file";
+		output.value+=lines[0];
 	} else {
 		output.value += '"url","username","password","extra","name","grouping","fav"' + "\n";
 		//output.value += lines[0] + "\n";
@@ -60,9 +67,7 @@ document.getElementById('input').addEventListener('change', function() {
 			}
 			output.value += '"' + array[i][array[i].length-1] + '"\n';
 	}
-//	output.value = "DONE";
-	
-}, false);
+}	
 
 document.getElementById('Download').addEventListener('click', function() {
 	download(array);
