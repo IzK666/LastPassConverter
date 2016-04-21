@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>LastPass converter</title>
+	<style type="text/css">
+		textarea {
+			width: 80%;
+			height: 150;
+		}
+		button {
+			align: right;
+		}
+	</style>
+</head>
+<body>
+	<h1>Usage</h1>
+	<p><b>Step 1:</b> Load a file or paste the text in the input field.</p>
+	<p><b>Step 2:</b> Preview the output</p>
+	<p><b>Step 3:</b> Download output</p>
+	<br><br><br>
+	<h1>LastPass file Upload</h1>
+	<input type="file" id="file" name="file" accept="text/*"></br>
+	<br><br><br>
+	<h1>Input:</h1>
+	<textarea id="input"></textarea>
+	<br><button id="Clear">Clear text</button>
+	<br><br><br>
+	<h1>Output:</h1>
+	<textarea id="output"></textarea>
+	<br><button id="Download">Download output</button>
+<script src="LP.js"></script>
+</body>
+</html>
